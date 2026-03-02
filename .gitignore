@@ -1,0 +1,27 @@
+# Environment
+.env
+
+# Virtual environment
+.venv/
+venv/
+
+# Build artifacts
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+
+# Temporary transcription working directory
+.vimeo_tmp/
+
+# Output transcripts
+transcript.txt
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp
