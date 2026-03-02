@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Optional
 
 CLAUDE_MODEL = "claude-opus-4-6"
-DEFAULT_WHISPER_MODEL = "medium"
+DEFAULT_WHISPER_MODEL = "large"
 TMP_DIR_NAME = ".vimeo_tmp"
 
 WHISPER_MODEL_REPOS = {
