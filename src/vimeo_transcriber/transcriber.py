@@ -3,13 +3,15 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-import whisper
+import mlx_whisper
+
+from .config import WHISPER_MODEL_REPOS
 
 log = logging.getLogger(__name__)
 
 
 def transcribe(audio_path: Path, model_name: str) -> str:
-    """Transcribe audio using a local Whisper model.
+    """Transcribe audio using mlx-whisper (Apple Silicon optimized).
 
     Args:
         audio_path: Path to the audio file.
@@ -18,12 +20,9 @@ def transcribe(audio_path: Path, model_name: str) -> str:
     Returns:
         Raw transcript as a single string.
     """
-    log.info("Loading Whisper model: %s", model_name)
-    model = whisper.load_model(model_name)
-
-    log.info("Transcribing audio (this may take a while)...")
-    result = model.transcribe(str(audio_path))
-
+    repo = WHISPER_MODEL_REPOS[model_name]
+    log.info("Transcribing with mlx-whisper model: %s", repo)
+    result = mlx_whisper.transcribe(str(audio_path), path_or_hf_repo=repo)
     text: str = result["text"]
     log.info("Transcription complete. Characters: %d", len(text))
     return text

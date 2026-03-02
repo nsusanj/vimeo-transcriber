@@ -10,6 +10,14 @@ CLAUDE_MODEL = "claude-opus-4-6"
 DEFAULT_WHISPER_MODEL = "medium"
 TMP_DIR_NAME = ".vimeo_tmp"
 
+WHISPER_MODEL_REPOS = {
+    "tiny":   "mlx-community/whisper-tiny-mlx",
+    "base":   "mlx-community/whisper-base-mlx",
+    "small":  "mlx-community/whisper-small-mlx",
+    "medium": "mlx-community/whisper-medium-mlx",
+    "large":  "mlx-community/whisper-large-v3-mlx",
+}
+
 
 @dataclass
 class AppConfig:
